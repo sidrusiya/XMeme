@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMeme</title>
+    <style>
+        * {
+           margin: 0px;
+        }
+        /* Align items of page in row.*/
+        .page{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .form {
+            width: 90%;
+            max-width: 600px;
+            padding: 4% 4%;
+        }
+        /* Style of upload form.*/
+        .upload{
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 600px;
+            padding: 4% 4%;
+        }
+        .upload > input {
+            margin: 1%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: lightgray;
+            font-size: 12pt;
+        }
+
+        .upload > label {
+            margin-left: 2%;
+        }
+
+        .upload > button {
+            width: 20%;
+            background-color: rgb(6, 160, 6);
+            margin: 1%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 12pt;
+        }
+        /* View of memes */
+        .view {
+            padding: 4% 4%;
+            background-color: black;
+            color: white;
+            width: 100%;
+        }
+
+        .view > h1 {
+            text-align: center;
+        }
+
+        .postid > p {
+            margin: 5px;
+        }
+
+        .postid {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(51, 49, 49);
+        }
+
+        @media only screen and (max-width: 650px) {
+            .page{
+            display: flex;
+            flex-direction: column;
+           }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="form">
+            <form action='/memes/<%= id %>'  method="POST">
+            <div class="upload">      
+            <label for="caption"><b>Caption</b></label>
+            <input type="text" placeholder="Write a good caption" name="caption" required>
+            
+            <label for="url"><b>Url</b></label>
+            <input type="text" placeholder="Type meme url" name="url" required>
+           
+            <button type="submit" value="OK">Post</button>
+            </div>
+            </form>
+        </div>
+        <div class="view">
+            <h1>Memes</h1>
+            <div class="post">
+                <% mascots.forEach(function(mascot) { %>
+                    <div class="postid">
+                    <h3><%= mascot.Memer %></h3>
+                    <p><%= mascot.caption %></p>
+                    <img width=100% src=<%= mascot.url %> alt="url">
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
