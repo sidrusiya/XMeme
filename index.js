@@ -24,5 +24,5 @@ app.get('/',(req, res)=>{
     res.redirect('/memes');
 })
 
-app.listen(8081);
+app.listen(process.env.PORT || 8081);
 console.log('8081 is the magic port');

@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
   },
+  "keywords": [
+    "stage-2b",
+    "heroku"
+  ],
   "author": "Siddhartha Rusiya",
   "license": "ISC",
   "dependencies": {
@@ -14,5 +19,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.11.15",
     "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "12.14.1"
   }
 }
